@@ -1,7 +1,9 @@
 package main.controllers;
 
+import models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +26,13 @@ public class ConsumerController {
 		String serviceStr = restTemplate.getForEntity("http://HELLO-SERVICE/hello", String.class).getBody();
 
 		return "Ribbon consumer at port:"+ serverPort + " gets info from hello-service: " + serviceStr;
+	}
+
+	@RequestMapping(value = "/ribbon-consumer-book",method = RequestMethod.GET)
+	public Book bookController() {
+
+		ResponseEntity<Book> bookEntity = restTemplate.getForEntity("http://HELLO-SERVICE/getbook", Book.class);
+
+		return bookEntity.getBody();
 	}
 }
