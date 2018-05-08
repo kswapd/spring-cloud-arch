@@ -7,11 +7,9 @@ spring cloud 架构
 软件架构说明
 
 
-#### 安装教程
+#### Install
 
-1. xxxx
-2. xxxx
-3. xxxx
+```mvn clean install```
 
 #### 使用说明
 
