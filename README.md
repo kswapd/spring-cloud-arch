@@ -27,5 +27,5 @@ spring cloud 架构
 4. 新建 Pull Request
 
 
-###Notice
+### Notice
 1. If meet dependency problem, use command: mvn clean install
