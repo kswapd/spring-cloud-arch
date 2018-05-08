@@ -1,5 +1,6 @@
 package main.controllers;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +22,7 @@ public class ConsumerController {
 
 	@Autowired
 	RestTemplate restTemplate;
+	@HystrixCommand(fallbackMethod = "error")
 	@RequestMapping(value = "/ribbon-consumer",method = RequestMethod.GET)
 	public String helloController() {
 		String serviceStr = restTemplate.getForEntity("http://HELLO-SERVICE/hello", String.class).getBody();
@@ -28,11 +30,22 @@ public class ConsumerController {
 		return "Ribbon consumer at port:"+ serverPort + " gets info from hello-service: " + serviceStr;
 	}
 
+	@HystrixCommand(fallbackMethod = "errorBook")
 	@RequestMapping(value = "/ribbon-consumer-book",method = RequestMethod.GET)
 	public Book bookController() {
 
 		ResponseEntity<Book> bookEntity = restTemplate.getForEntity("http://HELLO-SERVICE/getbook", Book.class);
 
 		return bookEntity.getBody();
+	}
+
+	public String error() {
+		return "error by hystrix";
+	}
+
+	public Book errorBook() {
+		Book errBook = new Book();
+		errBook.setTitle("Err book by hystrix");
+		return errBook;
 	}
 }
