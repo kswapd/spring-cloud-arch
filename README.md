@@ -1,19 +1,24 @@
 # spring-cloud-arch
 
-#### 项目介绍
-spring cloud 架构
+#### Introduce
+bank micro-service architecture powered by Spring Cloud
 
-#### 软件架构
-软件架构说明
+#### Archetecture
+
 
 
 #### Install
 
 ```mvn clean install```
 
-#### 使用说明
+#### How to use
 
-1. xxxx
+1. Start eureka server
+```
+cd eureka-server/target
+java -jar eureka-server-1.0-SNAPSHOT.jar
+
+```
 2. xxxx
 3. xxxx
 
