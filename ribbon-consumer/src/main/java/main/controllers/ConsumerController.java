@@ -41,7 +41,6 @@ public class ConsumerController {
 	public Book bookController() {
 
 		ResponseEntity<Book> bookEntity = restTemplate.getForEntity("http://HELLO-SERVICE/getbook", Book.class);
-
 		return bookEntity.getBody();
 	}
 
