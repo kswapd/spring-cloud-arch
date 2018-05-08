@@ -8,6 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * Created by kongxiangwen on 5/7/18 w:19.
  */
 
+
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ProviderApplication {

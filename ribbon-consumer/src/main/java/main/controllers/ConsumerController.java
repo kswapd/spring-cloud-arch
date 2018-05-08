@@ -1,10 +1,13 @@
 package main.controllers;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +23,8 @@ public class ConsumerController {
 	@Value("${server.port}")
 	private String serverPort;
 
+	private String refCache = "I'm first cache.";
+
 	@Autowired
 	RestTemplate restTemplate;
 	@HystrixCommand(fallbackMethod = "error")
@@ -30,8 +35,9 @@ public class ConsumerController {
 		return "Ribbon consumer at port:"+ serverPort + " gets info from hello-service: " + serviceStr;
 	}
 
-	@HystrixCommand(fallbackMethod = "errorBook")
+
 	@RequestMapping(value = "/ribbon-consumer-book",method = RequestMethod.GET)
+	@HystrixCommand(fallbackMethod = "errorBook")
 	public Book bookController() {
 
 		ResponseEntity<Book> bookEntity = restTemplate.getForEntity("http://HELLO-SERVICE/getbook", Book.class);
@@ -43,9 +49,23 @@ public class ConsumerController {
 		return "error by hystrix";
 	}
 
+
 	public Book errorBook() {
 		Book errBook = new Book();
 		errBook.setTitle("Err book by hystrix");
 		return errBook;
 	}
+
+
+	@RequestMapping(value = "/getCache/{id}", method = RequestMethod.GET)
+	//@CacheResult
+	public String getCache(@PathVariable("id") String id){
+
+		//HystrixRequestContext.initializeContext();
+		refCache = refCache + id;
+		return refCache;
+	}
+
+
+
 }
