@@ -24,7 +24,7 @@
     </dependencies>
 
 
-    
+
     <modules>
         <module>commons</module>
         <module>eureka-server</module>
