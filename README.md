@@ -1,4 +1,5 @@
 # spring-cloud-arch
+======================================
 
 ## Introduction
 banking micro-service architecture powered by Spring Cloud
