@@ -5,7 +5,9 @@
 ## Introduction
 banking micro-service architecture powered by Spring Cloud
 
-
+## Preparation
+1. **JDK** version `1.8.0_102` or later
+2. **maven** version `Apache Maven 3.3.9` or later
 ## Install
 
 ```mvn clean install```
