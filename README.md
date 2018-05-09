@@ -87,8 +87,10 @@ If you access `http://localhost:6001/hello-service/hello`, this service will be 
 cd config-server/target
 java -jar config-server-1.0-SNAPSHOT.jar
 ```
+
     Config service runs at `http://10.88.2.101:6100/`, you can get configuration info  at `http://10.88.2.101:6100/config-client/dev`.
     This config-server service use `https://gitee.com/kswapd/spring-cloud-config.git` as configuration files repository, all configuration files are stored in folder `config-repo.`
+
 
 ### 9. Run config client service
 ```
