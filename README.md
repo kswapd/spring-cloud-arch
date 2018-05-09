@@ -27,7 +27,7 @@ cd hello-service/target
 java -jar hello-service-1.0-SNAPSHOT.jar --server.port=2001
 java -jar hello-service-1.0-SNAPSHOT.jar --server.port=2002
 ```
-then you can access service at:
+Then you can access service at:
 ```
 http://localhost:2001/hello
 http://localhost:2001/getbook
@@ -38,7 +38,7 @@ http://localhost:2001/getbook
 cd ribbon-consumer/target
 java -jar ribbon-consumer-1.0-SNAPSHOT.jar --server.port=3001
 ```
-then you can access ribbon consumer service 
+Then you can access ribbon consumer service 
 ```
 http://localhost:3001/ribbon-consumer
 http://localhost:3001/ribbon-consumer-book
@@ -49,7 +49,7 @@ http://localhost:3001/ribbon-consumer-book
 cd feign-consumer/target
 java -jar feign-consumer-1.0-SNAPSHOT.jar
 ```
-then you can access feign consumer service 
+Then you can access feign consumer service 
 ```
 http://10.88.2.102:3501/feign-consumer
 ```
@@ -59,26 +59,42 @@ http://10.88.2.102:3501/feign-consumer
 cd hystrix-dashboard/target
 java -jar hystrix-dashboard-1.0-SNAPSHOT.jar
 ```
-then you can access hystrix dashboard service 
+Then you can access hystrix dashboard service 
 ```
 http://localhost:4001/hystrix
 ```
-you can input stream url:` http://localhost:3001/hystrix.stream ` to monitor ribbon-consumer service hystrix status
+You can input stream url:` http://localhost:3001/hystrix.stream ` to monitor ribbon-consumer service hystrix status
 
 ### 6. Run turbine service to monitor consumer service at multi-host
 ```
 cd turbine/target
 java -jar turbine-1.0-SNAPSHOT.jar
 ```
-then you can monitor ribbon-consumer service hystrix status by inputting turbine stream url ```http://localhost:5001/turbine.stream``` to hystrix dashboard
+Then you can monitor ribbon-consumer service hystrix status by inputting turbine stream url ```http://localhost:5001/turbine.stream``` to hystrix dashboard
 
 ### 7. Run api gateway zuul
 ```
 cd zuul/target
 java -jar zuul-1.0-SNAPSHOT.jar
 ```
-then you can access service routed by zuul
+Then you can access service routed by zuul
 `http://localhost:6001/hello-service/hello?login=a`, this service will be routed to `http://localhost:2001/hello`
+
+If you access `http://localhost:6001/hello-service/hello`, this service will be validated by zuul and you will get "invalid access" response.
+
+### 8. Run config server service
+```
+cd config-server/target
+java -jar config-server-1.0-SNAPSHOT.jar
+```
+    Config service runs at `http://10.88.2.101:6100/`, you can get configuration info  at `http://10.88.2.101:6100/config-client/dev`.
+    This config-server service use `https://gitee.com/kswapd/spring-cloud-config.git` as configuration files repository, all configuration files are stored in folder `config-repo.`
+
+### 9. Run config client service
+```
+cd config-client/target
+java -jar config-client-1.0-SNAPSHOT.jar
+```
 
 
 
@@ -103,7 +119,7 @@ then you can access service routed by zuul
 ### 2. Pull Request
 
 
-## pre-acquisition 
+## Pre-acquisition 
 
 
 ## Problems
