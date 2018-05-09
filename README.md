@@ -63,7 +63,7 @@ Then you can access hystrix dashboard service
 ```
 http://localhost:4001/hystrix
 ```
-You can input stream url:` http://localhost:3001/hystrix.stream ` to monitor ribbon-consumer service hystrix status
+You can input stream url ` http://localhost:3001/hystrix.stream ` to monitor ribbon-consumer service hystrix status
 
 ### 6. Run turbine service to monitor consumer service at multi-host
 ```
@@ -77,7 +77,7 @@ Then you can monitor ribbon-consumer service hystrix status by inputting turbine
 cd zuul/target
 java -jar zuul-1.0-SNAPSHOT.jar
 ```
-Then you can access service routed by zuul
+Then you can access service routed by zuul url
 `http://localhost:6001/hello-service/hello?login=a`, this service will be routed to `http://localhost:2001/hello`
 
 If you access `http://localhost:6001/hello-service/hello`, this service will be validated by zuul and you will get "invalid access" response.
