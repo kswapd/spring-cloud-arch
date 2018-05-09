@@ -6,8 +6,9 @@
 banking micro-service architecture powered by Spring Cloud
 
 ## Preparation
-1. **JDK** version `1.8.0_102` or later
-2. **maven** version `Apache Maven 3.3.9` or later
+  1. **JDK** version `1.8.0_102` or later
+  2. **maven** version `Apache Maven 3.3.9` or later
+  3. Use `eclipse` or `IntelliJ IDEA as Java IDE
 ## Install
 
 ```mvn clean install```
@@ -96,19 +97,13 @@ then you can access service routed by zuul
 * **SHOULD** follow [Java Coding Conventions](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf) and [Java Style Guide](https://google.github.io/styleguide/javaguide.html) if you haven't to improve code quality.
 
 
-
-
-
-
 ## Contributor
 
 ### 1. Fork by kongxw@dcits.com
-### 2. 
-### 3. Pull Request
+### 2. Pull Request
 
 
-
-
+## pre-acquisition 
 
 
 ## Problems
