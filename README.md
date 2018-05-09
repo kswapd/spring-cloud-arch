@@ -111,3 +111,8 @@ then you can access service routed by zuul
 
 ## Problems
 ### 1. If meet dependency problem, use command: mvn clean install
+
+
+## Other resource
+
+* [Spring Cloud learning](https://blog.csdn.net/u012702547/article/details/78717512 "learning")
