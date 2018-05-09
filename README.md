@@ -104,11 +104,8 @@ Then access url `http://10.88.2.101:6200/sang`, you will get property `sang` val
 
 #### configuration refresh test
 
-First open `https://gitee.com/kswapd/spring-cloud-config.git/config-repo/config-client-dev.properties` to edit this file, modify `sang` value,  and then Open software **Postman** to send post request `**POST** 
- http://localhost:6200/refresh` to config-client service, re-open url `http://10.88.2.101:6200/sang`, you will find the property `sang` value has been updated as git repository.
-
-
-
+First open `https://gitee.com/kswapd/spring-cloud-config.git/config-repo/config-client-dev.properties` to edit this file, modify `sang` value,  and then Open software **Postman** to send post request `POST 
+ http://localhost:6200/refresh` to notify config-client service to refresh property, re-open url `http://10.88.2.101:6200/sang`, you will find the property `sang` value has been updated as git repository.
 
 
 
