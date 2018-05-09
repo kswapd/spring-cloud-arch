@@ -110,7 +110,7 @@ then you can access service routed by zuul
 
 
 ## Problems
-### 1. If meet dependency problem, use command: mvn clean install
+* 1.If meet dependency problem, run 'mvn clean install'
 
 
 ## Other resource
