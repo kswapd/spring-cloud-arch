@@ -2,6 +2,8 @@ package main.controllers;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -23,6 +25,7 @@ public class HelloController {
 	@Value("${server.port}")
 	private String serverPort;
 
+	private static Logger log = LoggerFactory.getLogger(HelloController.class);
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String index() {
@@ -31,6 +34,7 @@ public class HelloController {
 		//for (int i = 0; i < instances.size(); i++) {
 			//logger.info("/hello,host:" + instances.get(i).getHost() + ",service_id:" + instances.get(i).getServiceId());
 		//}
+		log.info("being called");
 		return "Hello World from port:"+serverPort;
 	}
 
