@@ -5,7 +5,7 @@
 ## Introduction
 banking micro-service architecture powered by Spring Cloud
 
-## Preparation
+## Prerequisites
   1. **JDK** version `1.8.0_102` or later
   2. **maven** version `Apache Maven 3.3.9` or later
   3. Use `eclipse` or `IntelliJ IDEA` as Java IDE
@@ -128,8 +128,6 @@ First open `https://gitee.com/kswapd/spring-cloud-config.git/config-repo/config-
 ### 1. Fork by kongxw@dcits.com
 ### 2. Pull Request
 
-
-## Pre-acquisition 
 
 
 ## Problems
