@@ -20,18 +20,22 @@ public class HelloController {
 	@Autowired
 	private DiscoveryClient client;
 
+	@Autowired
+	private RestTemplate restTemplate;
+
 	@Value("${server.port}")
 	private String serverPort;
 
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public String index() {
+	@RequestMapping(value = "/zipkin-call", method = RequestMethod.GET)
+	public String call() {
+		String msgProvider = restTemplate.getForObject("http://HELLO-SERVICE/hello", String.class);
 
-		//List<ServiceInstance> instances = client.getInstances("hello-service");
-		//for (int i = 0; i < instances.size(); i++) {
-			//logger.info("/hello,host:" + instances.get(i).getHost() + ",service_id:" + instances.get(i).getServiceId());
-		//}
-		return "Hello World from port:"+serverPort;
+
+		String msgApiGateway = restTemplate.getForObject("http://API-GATEWAY/hello-service/hello?login=a", String.class);
+
+		return "zipkin get msg:"+msgProvider+" API gateway msg:" + msgApiGateway;
+
 	}
 
 }
