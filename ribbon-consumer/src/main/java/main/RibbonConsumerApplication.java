@@ -16,13 +16,13 @@ import org.springframework.web.client.RestTemplate;
 
 // use@SpringBootApplication to replace 3 annotations below
 @SpringBootApplication
-@EnableDiscoveryClient
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 public class RibbonConsumerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RibbonConsumerApplication.class, args);
 	}
+
 	@LoadBalanced
 	@Bean
 	RestTemplate restTemplate() {
