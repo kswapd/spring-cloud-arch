@@ -13,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
  */
 
 
-@EnableDiscoveryClient
 @SpringBootApplication
 public class ZipkinApplication {
 

@@ -137,3 +137,4 @@ First open `https://gitee.com/kswapd/spring-cloud-config.git/config-repo/config-
 ## Other resource
 
 * [Spring Cloud learning](https://blog.csdn.net/u012702547/article/details/78717512 "learning")
+* [Spring Cloud learning(Finchley version)](https://windmt.com/tags/Spring-Cloud/ "learning")

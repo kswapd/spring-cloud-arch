@@ -36,10 +36,7 @@ public class HelloController {
 	@RequestMapping(value = "/zipkin-call", method = RequestMethod.GET)
 	public String call() {
 		String msgProvider = restTemplate.getForObject("http://HELLO-SERVICE/hello", String.class);
-
-
 		//String msgApiGateway = restTemplate.getForObject("http://API-GATEWAY/hello-service/hello?login=a", String.class);
-
 		log.info("calling");
 		return "zipkin get msg:"+msgProvider;
 		//return "zipkin get msg:"+msgProvider+" API gateway msg:" + msgApiGateway;
