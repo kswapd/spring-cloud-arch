@@ -17,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
  */
 
 @RestController
+//@RequestMapping(value = "/aa")
 public class HelloController {
 	//private final Logger logger = Logger.getLogger(HelloController.class);
 	@Autowired
