@@ -31,9 +31,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-@Component
-@RestController
-@RequestMapping("/api/gateway")
+//@Component
+//@RestController
+//@RequestMapping("/api/gateway")
 public class GatewayConfigurationController implements ApplicationEventPublisherAware {
 
   private ApplicationEventPublisher applicationEventPublisher;

@@ -31,6 +31,7 @@ public class ConsumerController {
 		String serviceStr = restTemplate.getForEntity("http://HELLO-SERVICE/hello", String.class).getBody();
 
 		return "Ribbon consumer at port:"+ serverPort + " gets info from hello-service: " + serviceStr;
+
 	}
 
 
