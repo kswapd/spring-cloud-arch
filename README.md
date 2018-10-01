@@ -1,6 +1,5 @@
 # spring-cloud-arch
 --------------------------------------------
-![logo](http://dcits.com/statics/images/dcits/logo.png)
 
 ## Introduction
 banking micro-service architecture powered by Spring Cloud
