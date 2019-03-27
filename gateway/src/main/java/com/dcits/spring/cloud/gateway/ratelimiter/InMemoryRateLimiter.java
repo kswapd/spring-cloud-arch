@@ -13,7 +13,7 @@ import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
-@ConfigurationProperties("spring.cloud.gateway.rate-limiter")
+//@ConfigurationProperties("spring.cloud.gateway.rate-limiter")
 public class InMemoryRateLimiter extends AbstractRateLimiter<InMemoryRateLimiter.Config> {
 
   private static final String CONFIGURATION_PROPERTY_NAME = "rate-limiter";
