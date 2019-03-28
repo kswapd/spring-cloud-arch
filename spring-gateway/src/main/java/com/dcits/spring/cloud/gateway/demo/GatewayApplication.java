@@ -44,6 +44,8 @@ public class GatewayApplication {
 
     }
 
+
+
     @Bean
     public RateLimiterKeyResolver appkeyResolver(){
         return new RateLimiterKeyResolver();
@@ -114,7 +116,7 @@ public class GatewayApplication {
                     })
                     //.uri("http://httpbin.org"))
                     .uri("lb://spring-gateway-demo"))
-
+            //fallback here not worked
             .route(p -> p
                     .path("/getlimitfb")
                     .filters(f -> {
