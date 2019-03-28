@@ -37,7 +37,7 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>zipkin-collector</module>
-        <module>gateway</module>
+        <module>spring-gateway</module>
     </modules>
 
 

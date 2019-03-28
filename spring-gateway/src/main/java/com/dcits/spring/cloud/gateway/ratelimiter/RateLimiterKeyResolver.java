@@ -7,9 +7,12 @@ import reactor.core.publisher.Mono;
 public class RateLimiterKeyResolver implements KeyResolver {
 
   private static final String RATE_LIMIT_VALUE = "123";
-
+  public static final String BEAN_NAME = "remoteAddrKeyResolver";
   @Override
   public Mono<String> resolve(ServerWebExchange exchange) {
-    return Mono.just(RATE_LIMIT_VALUE);
+   //return Mono.just(RATE_LIMIT_VALUE);
+    System.out.println("-----address:"+exchange.getRequest().getRemoteAddress().getAddress().getHostAddress());
+    return Mono.just(BEAN_NAME+":"+exchange.getRequest().getRemoteAddress().getAddress().getHostAddress());
+
   }
 }

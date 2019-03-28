@@ -1,6 +1,16 @@
 spring:
   application:
-    name: gateway-demo
+    name: spring-gateway-demo
+    http:
+      encoding:
+        charset: UTF-8
+        enable: true
+        force: true
+      messages:
+        encoding: UTF-8
+  redis:
+    host: oms.cache-redis-server
+    port: 6379
 #  http:
 #    encoding:
 #      charset: UTF-8
