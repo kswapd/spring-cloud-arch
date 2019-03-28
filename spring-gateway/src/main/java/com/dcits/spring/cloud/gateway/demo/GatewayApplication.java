@@ -38,6 +38,8 @@ public class GatewayApplication {
     }
 
 
+
+
     @Bean
     RedisRateLimiter redisRateLimiter() {
         return new RedisRateLimiter(1, 1);
@@ -105,6 +107,8 @@ public class GatewayApplication {
                     })
                     .uri("lb://spring-gateway-demo"))
 
+            //redis-rate-limiter.replenishRate is how many requests per second do you want a user to be allowed to do, without any dropped requests. This is the rate that the token bucket is filled.
+            //redis-rate-limiter.burstCapacity is the maximum number of requests a user is allowed to do in a single second. This is the number of tokens the token bucket can hold. Setting this value to zero will block all requests.
             .route(p -> p
                     .path("/getlimit")
                     .filters(f -> {
