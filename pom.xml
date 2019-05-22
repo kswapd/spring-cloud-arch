@@ -38,6 +38,7 @@
         <module>config-client</module>
         <module>zipkin-collector</module>
         <module>spring-gateway</module>
+        <module>rabbit-listener</module>
     </modules>
 
 
