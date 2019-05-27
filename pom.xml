@@ -39,6 +39,7 @@
         <module>zipkin-collector</module>
         <module>spring-gateway</module>
         <module>rabbit-listener</module>
+        <module>spring-aop</module>
     </modules>
 
 
