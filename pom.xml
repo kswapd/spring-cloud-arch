@@ -40,6 +40,8 @@
         <module>spring-gateway</module>
         <module>rabbit-listener</module>
         <module>spring-aop</module>
+        <module>spring-cluster</module>
+        <module>spring-cluster2</module>
     </modules>
 
 
