@@ -1,23 +1,14 @@
 package main;
 
-import com.dcits.galaxy.core.spring.SpringApplicationContext;
 import javax.annotation.Resource;
-import main.controllers.Receiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
-
-import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
-import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.client.RestTemplate;
@@ -26,12 +17,9 @@ import org.springframework.web.client.RestTemplate;
  * Created by kongxiangwen on 5/7/18 w:19.
  */
 
-@ImportResource(value = { "classpath:META-INF/spring/*.xml" })
+@ImportResource(value = {"classpath:META-INF/spring/*.xml"})
 @SpringBootApplication
 public class RabbitApplication {
-
-
-
 
 
 	static final String topicExchangeName = "exchangeTracing";
@@ -93,13 +81,11 @@ public class RabbitApplication {
 	private RabbitTemplate rabbitTemplate;
 
 
-
 	public static void main(String[] args) {
 
 		System.out.println("Rabbit started...");
 		SpringApplication.run(RabbitApplication.class, args);
 		System.out.println("Rabbit started...222");
-
 
 
 	}
