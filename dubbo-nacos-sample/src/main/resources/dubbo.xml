@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dcits="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <dcits:application name="helloworld-provider-nacos" />
+    <dcits:registry address="10.7.94.133:8848" />
+    <dcits:protocol name="dubbo" host="10.7.94.133" port="22888" />
+    <bean id="demoService"
+          class="services.DemoServiceImpl" />
+    <dcits:service ref="demoService"
+                   interface="services.DemoService"
+                   protocol="dubbo" scope="remote"/>
+
+</beans>
