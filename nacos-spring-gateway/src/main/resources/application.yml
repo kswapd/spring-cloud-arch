@@ -23,7 +23,9 @@ spring:
         default-filters:
           - AddResponseHeader=Authorization
           - PrefixPath=/oauth,/oms
-#        discovery:
+      nacos:
+        discovery:
+          server-addr: 127.0.0.1:8848
 #          locator:
 #            enabled: true
 #        default-filters:
@@ -50,11 +52,13 @@ server:
 #  servlet:
 #    context-path: /gateway-demo
 ##eureka.client.service-url.defaultZone=http://localhost:1111/eureka,http://localhost:1112/eureka
+
 eureka:
   client:
     register-with-eureka: true
     service-url: #指定注册中心的地址，以便使用服务发现功能
       defaultZone: http://127.0.0.1:1111/eureka
+
     registry-fetch-interval-seconds: 10
     healthcheck:
       enabled: true
