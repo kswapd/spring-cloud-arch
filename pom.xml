@@ -27,6 +27,7 @@
 
     <modules>
         <module>commons</module>
+        <module>cloud-tracer-collector</module>
         <module>eureka-server</module>
         <module>hello-service</module>
         <module>ribbon-consumer</module>
@@ -42,6 +43,8 @@
         <module>spring-aop</module>
         <module>spring-cluster</module>
         <module>spring-cluster2</module>
+        <module>nacos-hello</module>
+        <module>apollo-config</module>
     </modules>
 
 

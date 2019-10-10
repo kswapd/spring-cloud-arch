@@ -30,3 +30,7 @@ public/
 .vagrant
 tmp/
 target/
+.classpath
+.project
+.settings
+.vscode

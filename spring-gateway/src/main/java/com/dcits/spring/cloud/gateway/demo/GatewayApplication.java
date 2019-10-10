@@ -2,6 +2,8 @@ package com.dcits.spring.cloud.gateway.demo;
 
 import com.dcits.spring.cloud.gateway.ratelimiter.RateLimiterKeyResolver;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.function.Consumer;
@@ -67,7 +69,9 @@ public class GatewayApplication {
     String date = simpleDateFormat.format(calendar.getTime());
     System.out.println(date);
 
-    config.setDatetime(date);
+      ZonedDateTime d = ZonedDateTime.ofInstant(calendar.getTime().toInstant(),
+              ZoneId.systemDefault());
+    config.setDatetime(d);
     System.out.println("-------:"+date);
 
    // configConsumer.
@@ -165,8 +169,12 @@ public class GatewayApplication {
 
             .route(p -> p
                     .path("/uaa")
-                    .filters(f -> f.addRequestHeader("Hello", "World"))
-                    .uri("lb://auth-service"))
+                    .filters(f -> {
+                        f.addRequestHeader("Hello", "World");
+                        f.rewritePath("/uaa","/hello");
+                        return f;
+                         })
+                    .uri("lb://hello-service"))
             .build();
   }
 

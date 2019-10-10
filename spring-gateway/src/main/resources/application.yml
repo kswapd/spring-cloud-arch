@@ -47,14 +47,19 @@ management:
 
 server:
   port: 7188
-#  servlet:
-#    context-path: /gateway-demo
-##eureka.client.service-url.defaultZone=http://localhost:1111/eureka,http://localhost:1112/eureka
+  #logging.level.com.dcits.trace=DEBUG
+
+cloud:
+  trace:
+    url: http://10.7.19.116:30094
+    probability: 1.0
+    enabled: true
+
 eureka:
   client:
     register-with-eureka: true
     service-url: #指定注册中心的地址，以便使用服务发现功能
-      defaultZone: http://127.0.0.1:1111/eureka
+      defaultZone: http://10.7.19.116:30007/eureka
     registry-fetch-interval-seconds: 10
     healthcheck:
       enabled: true

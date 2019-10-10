@@ -89,7 +89,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>main.ZipkinApplication</mainClass>
+                            <mainClass>main.CloudTracerApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

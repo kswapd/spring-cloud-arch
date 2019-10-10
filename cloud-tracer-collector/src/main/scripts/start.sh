@@ -4,7 +4,7 @@ cd ..
 DEPLOY_DIR=`pwd`
 CONF_DIR=$DEPLOY_DIR/config
 LIB_DIR=$DEPLOY_DIR/lib
-SERVER_NAME="hello-service"
+SERVER_NAME="cloud-trace-collector"
 SERVER_PORT=`cat $CONF_DIR/bootstrap.yml | grep -w "port:" | grep -v "#" | awk  'NR==1{print $2}' | tr -d '\r'`
 IS_LISTENED=`netstat -an | grep -w LISTEN | grep -w $SERVER_PORT`
 if [ -n "$IS_LISTENED" ]; then
