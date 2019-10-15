@@ -69,6 +69,21 @@
         <groupId>com.dcits</groupId>
         <artifactId>cloud-trace-starter</artifactId>
         <version>1.0.0</version>
+        <exclusions>
+        <!-- <exclusion>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-instrumentation-spring-rabbit</artifactId>
+        </exclusion>
+
+        <exclusion>
+             <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-amqp</artifactId>
+        </exclusion>
+        <exclusion>
+         <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+        </exclusion> -->
+        </exclusions>
         </dependency>
 
 
