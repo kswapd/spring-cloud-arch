@@ -21,7 +21,7 @@ public class LocalCheck {
 	public void localSysCheck()
 	{
 		RandomSleep.Sleep();
-		hs.hello();
+		//hs.hello();
 		RandomSleep.Sleep();
 		log.info("finished");
 	}
