@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.kafka.core.KafkaTemplate;
+//import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,14 +26,14 @@ public class HelloController {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	@Resource(name="myKafka")
+	/*@Resource(name="myKafka")
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
 	public void sendMessage(String msg) {
 		log.info("kafka template msg:{}",kafkaTemplate.toString());
 		kafkaTemplate.send("testbb", "hi", msg);
 		log.info("kafka send finish");
-	}
+	}*/
 	private int i = 0;
 	@Value("${server.port}")
 	private String serverPort;
@@ -51,7 +51,7 @@ public class HelloController {
 		log.info("being called");
 		String test = "a";//restTemplate.getForObject("http://HELLO-SERVICE/hello", String.class);
 		String snd = "kafka hi " + i;
-		sendMessage(snd);
+		//sendMessage(snd);
 		i ++;
 		log.info("being called finish:{}", test);
 		return "Hello Kafka from port:"+serverPort;

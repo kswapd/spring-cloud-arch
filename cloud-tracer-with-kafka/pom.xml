@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dcits</groupId>
-  <artifactId>kafka-demo</artifactId>
+  <artifactId>cloud-tracer-with-kafka</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>kafka-demo</name>
+  <name>cloud-tracer-with-kafka</name>
   <url>http://maven.apache.org</url>
 
  <parent>
@@ -61,7 +61,7 @@
         </dependency>
 
 
-
+<!--
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -94,7 +94,7 @@
         <version>1.0.0</version>
         </dependency>
 
-<!--
+-->
          <dependency>
         <groupId>com.dcits</groupId>
         <artifactId>cloud-trace-starter</artifactId>
@@ -115,7 +115,7 @@
         </exclusion> 
         </exclusions>
         </dependency>
--->
+
 
     </dependencies>
     

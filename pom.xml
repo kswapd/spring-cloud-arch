@@ -43,6 +43,7 @@
         <module>spring-cluster2</module>
         <module>nacos-hello</module>
         <module>apollo-config</module> 
+        <module>cloud-tracer-with-kafka</module>
         <module>kafka-demo</module>
   </modules>
 
