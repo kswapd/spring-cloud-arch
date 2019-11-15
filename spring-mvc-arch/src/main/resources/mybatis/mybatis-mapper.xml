@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="Test">
+    <resultMap type="dcits.models.DaoDemo" id="DaoDemoMap">
+        <id property="id" column="id"/>
+        <result property="info" column="info"/>
+        <result property="num" column="num"/>
+        <result property="size" column="size"/>
+    </resultMap>
+    <select id="queryDataCount"
+            parameterType="dcits.models.DaoDemo"
+            resultType="int">
+        SELECT COUNT(1) FROM dao_demo T WHERE T.id = #{id}
+    </select>
+
+    <select id="findById" parameterType="int" resultMap="DaoDemoMap">
+        SELECT *
+        FROM dao_demo
+        WHERE id=#{id}
+    </select>
+
+    <select id="getLimit" parameterType="int" resultType="dcits.models.DaoDemo">
+        SELECT *
+        FROM dao_demo
+        limit #{id}
+    </select>
+
+</mapper>

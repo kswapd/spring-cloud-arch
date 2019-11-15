@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+    <!-- 加载资源配置文件 -->
+
+    <context:component-scan base-package="com.dcits.daos"/>
+
+    <bean id="propertyConfigurerBusiDb"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath*:galaxy.db.properties</value>
+            </list>
+        </property>
+        <property name="properties">
+            <value>
+                typeAliasesPackage=com.dcits.galaxy.base.data
+                databaseType=Oracle
+                db.pool.initialSize=1
+                db.pool.maxActive=5
+                db.pool.minIdle=1
+                db.pool.maxWait=500
+                db.pool.poolPreparedStatements=true
+                db.pool.maxOpenPreparedStatements=100
+                db.pool.validationQuery=SELECT 'X' from dual
+                db.pool.testOnBorrow=true
+                db.pool.testOnReturn=false
+                db.pool.testWhileIdle=true
+                db.pool.filters=config,stat
+            </value>
+        </property>
+    </bean>
+
+
+
+    <!-- 垂直数据库数据源 -->
+    <bean id="dataSource0" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="url" value="${db0.jdbcUrl}"/>
+        <property name="username" value="${db0.username}"/>
+        <property name="password" value="${db0.password}"/>
+        <property name="initialSize" value="${db.pool.initialSize}"/>
+        <property name="maxActive" value="${db.pool.maxActive}"/>
+        <property name="minIdle" value="${db.pool.minIdle}"/>
+        <property name="poolPreparedStatements" value="${db.pool.poolPreparedStatements}"/>
+        <property name="maxOpenPreparedStatements" value="${db.pool.maxOpenPreparedStatements}"/>
+        <property name="validationQuery" value="${db.pool.validationQuery}"/>
+        <property name="testOnBorrow" value="${db.pool.testOnBorrow}"/>
+        <property name="testOnReturn" value="${db.pool.testOnReturn}"/>
+        <property name="testWhileIdle" value="${db.pool.testWhileIdle}"/>
+        <property name="filters" value="${db.pool.filters}"/>
+        <property name="connectionProperties" value="config.decrypt=${decryptFlag}"/>
+    </bean>
+
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="dataSource" ref="dataSource0" />
+    </bean>
+
+    <bean id = "sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" >
+
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+</beans>

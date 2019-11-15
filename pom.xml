@@ -45,6 +45,8 @@
         <module>apollo-config</module> 
         <module>cloud-tracer-with-kafka</module>
         <module>kafka-demo</module>
+        <module>spring-demos</module>
+        <module>spring-mvc-arch</module>
   </modules>
 
 

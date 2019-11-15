@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hints>
+    <hint sdb="${sdbId}" ts="${ts}">
+        <sqlmap>com.dcits.gaea.dao.DemoAcctDao.updateBatchAcctBal</sqlmap>
+    </hint>
+    <hint sdb="${sdbId}">
+        <sqlmap>com.dcits.galaxy.dal.mybatis.idempotent.insert</sqlmap>
+        <sqlmap>com.dcits.galaxy.dal.mybatis.idempotent.selectCount</sqlmap>
+        <sqlmap>com.dcits.galaxy.dal.mybatis.idempotent.delete</sqlmap>
+        <sqlmap>com.dcits.orion.batch.service.BatchTableLoad.getIdempoent</sqlmap>
+    </hint>
+</hints>
