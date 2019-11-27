@@ -15,7 +15,7 @@ fi
 PIDS=`ps -ef | grep "$LIB_DIR" | awk '{print $2}'`
 echo -e "Stopping the $SERVER_NAME ...\c"
 
-COUNT=0
+COUNT=2
 while [ $COUNT -lt 1 ]; do
     for PID in $PIDS ; do
         kill $PID > /dev/null 2>&1
