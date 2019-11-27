@@ -47,6 +47,7 @@
         <module>kafka-demo</module>
         <module>spring-demos</module>
         <module>spring-mvc-arch</module>
+         <module>spring-reactive</module>
   </modules>
 
 
