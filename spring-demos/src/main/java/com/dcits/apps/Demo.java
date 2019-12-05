@@ -34,6 +34,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.I0Itec.zkclient.ZkClient;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+import org.apache.axis.encoding.XMLType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -51,7 +54,11 @@ import org.xml.sax.EntityResolver;
 import org.xml.sax.ErrorHandler;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.xml.rpc.ParameterMode;
 
+import com.dcits.ws.Login;
+import com.dcits.ws.SeasService;
+import com.dcits.ws.SeasServicePortType;
 /**
  * Created by kongxiangwen on 11/7/18 w:45.
  */
@@ -85,12 +92,62 @@ public class Demo {
 		// testRetBool();
 		// testSplit();
 		//testRecursiveTask();
-		testRecursiveAction();
-
+		//testRecursiveAction();
+		testWebService();
 
 
 	}
 
+	public static void testWebService1()
+	{
+		try {
+            String endpoint = "http://111.20.82.6:8060/seasws/services/SeasService";
+            //直接引用远程的wsdl文件
+            //以下都是套路 
+            Service service = new Service();
+            Call call = (Call) service.createCall();
+            call.setTargetEndpointAddress(endpoint);
+			call.setOperationName("login");//WSDL里面描述的接口名称
+			
+            call.addParameter("in1", org.apache.axis.encoding.XMLType.XSD_STRING,
+					javax.xml.rpc.ParameterMode.IN);//接口的参数
+			call.addParameter("in2", org.apache.axis.encoding.XMLType.XSD_STRING,
+                    javax.xml.rpc.ParameterMode.IN);//接口的参数		
+            call.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);//设置返回类型 
+			String loginName = "zhangbei";
+			String loginPassword = "123456";
+            String result = (String) call.invoke(new Object[]{loginName,loginPassword});//给方法传递参数，并且调用方法
+            System.out.println("result is " + result);
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+	}
+
+	public static void testWebService()
+	{
+		try {
+            //直接引用远程的wsdl文件
+			//以下都是套路 
+			String loginName = "wangbei";
+			String loginPassword = "123456";
+			Login lo;
+			SeasService ss;
+			ss = new SeasService();
+			SeasServicePortType pt = 	ss.getSeasServiceHttpPort();
+			//String result  = pt.checkState();
+			//String result  = pt.listLib();
+			//pt.
+			//String result  = pt.login(loginPassword,loginName);
+			
+			String result = pt.echo("hi,seas");
+			System.out.println("result is " + result);
+			
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+	}
+
+	
 	private static void testSplit() {
 		String ip = "10.88.2.1.102,10.88.2.103:5672";
 		String[] arr = ip.split(" *, *");
