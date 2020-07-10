@@ -9,7 +9,7 @@
     </parent>-->
     <modelVersion>4.0.0</modelVersion>
     <groupId>dcits</groupId>
-    <artifactId>spring-reactive</artifactId>
+    <artifactId>spring-rxjava2</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 

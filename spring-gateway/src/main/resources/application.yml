@@ -1,4 +1,7 @@
 spring:
+  sleuth:
+    reactor:
+      enabled: true
   application:
     name: spring-gateway-demo
     http:
@@ -19,22 +22,20 @@ spring:
 #    messages:
 #      encoding: UTF-8
   cloud:
-      gateway:
-        default-filters:
-          - AddResponseHeader=Authorization
-          - PrefixPath=/oauth,/oms
-#        discovery:
-#          locator:
-#            enabled: true
-#        default-filters:
-#        routes:
-#
-#        - id: route-to-lunar
-#          uri: http://localhost:5188
-#          predicates:
-#          - Path= /gw/**
-#          filters:
-#          - StripPrefix=1
+    gateway:
+        #default-filters:
+        #  - AddResponseHeader=Authorization
+        #  - PrefixPath=/oauth,/oms
+        #discovery:
+        #  locator:
+        #    enabled: false
+      routes:
+      - id: routeoms
+        uri: lb://CLOUD-TRACER-WITH-KAFKA
+        predicates:
+        - Path=/gw/**
+        filters:
+        - StripPrefix=1
 
 #开启端点
 management:
@@ -44,6 +45,9 @@ management:
         include: '*'
     security:
       enabled: false
+  health:
+    rabbit:
+      enabled: false
 
 server:
   port: 7188
@@ -51,7 +55,7 @@ server:
 
 cloud:
   trace:
-    url: http://10.7.19.116:30094
+    url: http://10.7.19.120:9411/
     probability: 1.0
     enabled: true
 
@@ -59,7 +63,7 @@ eureka:
   client:
     register-with-eureka: true
     service-url: #指定注册中心的地址，以便使用服务发现功能
-      defaultZone: http://10.7.19.116:30007/eureka
+      defaultZone: http://localhost:1111/eureka
     registry-fetch-interval-seconds: 10
     healthcheck:
       enabled: true

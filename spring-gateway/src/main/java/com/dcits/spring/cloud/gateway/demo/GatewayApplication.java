@@ -1,6 +1,6 @@
 package com.dcits.spring.cloud.gateway.demo;
 
-import com.dcits.spring.cloud.gateway.ratelimiter.RateLimiterKeyResolver;
+
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -50,10 +50,7 @@ public class GatewayApplication {
 
 
 
-    @Bean
-    public RateLimiterKeyResolver appkeyResolver(){
-        return new RateLimiterKeyResolver();
-    }
+   
 
   @Bean
   public RouteLocator myRoutes(RouteLocatorBuilder builder) {
@@ -113,7 +110,7 @@ public class GatewayApplication {
 
             //redis-rate-limiter.replenishRate is how many requests per second do you want a user to be allowed to do, without any dropped requests. This is the rate that the token bucket is filled.
             //redis-rate-limiter.burstCapacity is the maximum number of requests a user is allowed to do in a single second. This is the number of tokens the token bucket can hold. Setting this value to zero will block all requests.
-            .route(p -> p
+            /*.route(p -> p
                     .path("/getlimit")
                     .filters(f -> {
                         f.requestRateLimiter(c -> c.setRateLimiter(redisRateLimiter()).setKeyResolver(appkeyResolver()));
@@ -123,9 +120,9 @@ public class GatewayApplication {
 
                     })
                     //.uri("http://httpbin.org"))
-                    .uri("lb://spring-gateway-demo"))
+                    .uri("lb://spring-gateway-demo"))*/
             //fallback here not worked
-            .route(p -> p
+           /* .route(p -> p
                     .path("/getlimitfb")
                     .filters(f -> {
                         f.requestRateLimiter(c -> c.setRateLimiter(redisRateLimiter()).setKeyResolver(appkeyResolver()));
@@ -134,7 +131,7 @@ public class GatewayApplication {
                         return f;
                     })
                     //.uri("http://httpbin.org"))
-                    .uri("lb://spring-gateway-demo"))
+                    .uri("lb://spring-gateway-demo"))*/
 
             .route(p -> p
                     .path("/gethys")
@@ -174,7 +171,7 @@ public class GatewayApplication {
                         f.rewritePath("/uaa","/hello");
                         return f;
                          })
-                    .uri("lb://hello-service"))
+                    .uri("lb://CLOUD-TRACER-WITH-KAFKA"))
             .build();
   }
 

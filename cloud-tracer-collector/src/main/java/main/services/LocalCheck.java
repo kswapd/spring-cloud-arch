@@ -2,6 +2,7 @@ package main.services;
 
 
 import com.dcits.cloud.traces.annotations.InvokingChainMonitor;
+import com.dcits.cloud.traces.annotations.InvokingChainTags;
 import main.utils.RandomSleep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,7 @@ public class LocalCheck {
 	@Autowired
 	private HelloService hs;
 
-	@InvokingChainMonitor
+	//@InvokingChainMonitor
 	public void localSysCheck()
 	{
 		RandomSleep.Sleep();
@@ -25,8 +26,17 @@ public class LocalCheck {
 		RandomSleep.Sleep();
 		log.info("finished");
 	}
-	@InvokingChainMonitor
-	public void localEnvCheck()
+		//@InvokingChainMonitor
+		public void localEnvCheck()
+	{
+		RandomSleep.Sleep();
+		localAccountCheck.accountCheck();
+		log.info("finished");
+	}
+	@InvokingChainMonitor(value = "gravity.node", tags = {@InvokingChainTags(key = "uri", value = "exchange.getUri()"),
+    @InvokingChainTags(key = "nodeId", value = "exchange.getNodeDefinition().getId()"), @InvokingChainTags(key = "clazz", value = "exchange.getNodeDefinition().getClassName()"),
+	@InvokingChainTags(key = "method", value = "exchange.getNodeDefinition().getMethod()")})
+	public void localEnvCheckDetail()
 	{
 		RandomSleep.Sleep();
 		localAccountCheck.accountCheck();

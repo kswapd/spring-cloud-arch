@@ -1,0 +1,69 @@
+<assembly
+        xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>assembly</id>
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>db</directory>
+            <outputDirectory>db</outputDirectory>
+        </fileSet>
+        <!-- <fileSet>
+            <directory>./target/classes</directory>
+            <outputDirectory>/webapp/WEB-INF/classes</outputDirectory>
+        </fileSet> -->
+        <fileSet>
+            <directory>./bin</directory>
+            <outputDirectory>/conf</outputDirectory>
+            <includes>
+            	<include>**.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>./src/main/resources</directory>
+            <outputDirectory>/conf</outputDirectory>
+        </fileSet>
+            <fileSet>
+            <directory>./src/test/resources</directory>
+            <outputDirectory>/conf</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>./src/main/scripts</directory>
+            <outputDirectory>/bin</outputDirectory>
+            <fileMode>0755</fileMode>
+            <includes>
+                <include>**.**</include>
+            </includes>
+        </fileSet>
+        <!-- <fileSet>
+            <directory>./src/main/webapp</directory>
+            <outputDirectory>/webapp</outputDirectory>
+        </fileSet> -->
+        <fileSet>
+            <directory>./target</directory>
+            <outputDirectory>/lib</outputDirectory>
+            <includes>
+            	<include>**.jar</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>./lib</outputDirectory>
+            <useProjectArtifact>false</useProjectArtifact>
+            <useProjectAttachments>true</useProjectAttachments>
+            <scope>runtime</scope>
+            <!--<excludes>
+                <exclude>com.sun.jersey:jersey-*:*</exclude>
+                <exclude>tomcat:jasper-*:*</exclude>
+                <exclude>*:servlet-*:*</exclude>
+                <exclude>*:jsp-*:*</exclude>
+            </excludes>-->
+        </dependencySet>
+    </dependencySets>
+</assembly>

@@ -49,12 +49,12 @@ public class HelloController {
 			//logger.info("/hello,host:" + instances.get(i).getHost() + ",service_id:" + instances.get(i).getServiceId());
 		//}
 		log.info("being called");
-		String test = "a";//restTemplate.getForObject("http://HELLO-SERVICE/hello", String.class);
+		String test = restTemplate.getForObject("http://HELLO-SERVICE/hello", String.class);
 		String snd = "kafka hi " + i;
 		//sendMessage(snd);
 		i ++;
 		log.info("being called finish:{}", test);
-		return "Hello Kafka from port:"+serverPort;
+		return "Hello Kafka from port:"+serverPort+":"+test;
 	}
 
 }

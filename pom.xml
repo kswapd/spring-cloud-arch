@@ -47,7 +47,12 @@
         <module>kafka-demo</module>
         <module>spring-demos</module>
         <module>spring-mvc-arch</module>
-         <module>spring-reactive</module>
+        
+        <module>spring-rxjava2</module>
+         <module>spring-reactor</module>
+
+        <module>spark-learn</module>
+       
   </modules>
 
 

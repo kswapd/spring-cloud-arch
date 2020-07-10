@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.dcits</groupId>
+  <artifactId>spark-learn</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>spark-learn</name>
+  <url>http://maven.apache.org</url>
+  <description>Zipkin Dependencies (Parent)</description>
+  <inceptionYear>2016</inceptionYear>
+
+<organization>
+    <name>OpenZipkin</name>
+    <url>https://zipkin.io/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.encoding>UTF-8</project.encoding>
+        <java.version>1.8</java.version>
+        <spring-boot-admin.version>2.1.0</spring-boot-admin.version>
+        <tsdb-express.version>1.0</tsdb-express.version>
+        <influxdb-datasource.version>2.5</influxdb-datasource.version>
+        <sigar.version>1.6.4</sigar.version>
+        <sun-tools.version>1.8.0</sun-tools.version>
+        <druidMonitorApi.version>1.0.0</druidMonitorApi.version>
+        <ojdbc6.version>11.2.0.3</ojdbc6.version>
+        <swagger.version>2.9.2</swagger.version>
+        <annotations.version>1.5.20</annotations.version>
+        <ganymed-ssh2.version>262</ganymed-ssh2.version>
+        <galaxy-dubbo.version>2.3.2</galaxy-dubbo.version>
+        <poi.version>3.9</poi.version>
+        <jfinal.version>3.5</jfinal.version>
+        <dubbo.version>2.6.2</dubbo.version>
+        <esper.version>7.1.0</esper.version>
+        <spring-security-oauth2.version>2.3.3.RELEASE</spring-security-oauth2.version>
+        <spring-security-oauth2-autoconfigure.version>2.0.6.RELEASE</spring-security-oauth2-autoconfigure.version>
+        <retrofit.version>2.1.0</retrofit.version>
+        <converter-moshi.version>2.1.0</converter-moshi.version>
+        <slf4j-api.version>1.7.21</slf4j-api.version>
+
+
+
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <fastjson.version>1.2.49</fastjson.version>
+        <sharding.version>3.0.0</sharding.version>
+        <junit.version>4.12</junit.version>
+        <mybatis.spring.version>2.0.1</mybatis.spring.version>
+        <mybatis.version>3.5.1</mybatis.version>
+        <mybatisplus.version>3.1.2</mybatisplus.version>
+        <hessian.version>4.0.51</hessian.version>
+        <javasist.version>3.24.1-GA</javasist.version>
+        <xstream.version>1.4.10</xstream.version>
+        <cucumber.version>4.3.1</cucumber.version>
+        <oracle.driver.version>12.2.0.1</oracle.driver.version>
+        <protostuff.version>3.0.0</protostuff.version>
+        <mysql.connector.version>5.1.46</mysql.connector.version>
+        <druid.version>1.1.16</druid.version>
+        <druid-starter.version>1.1.16</druid-starter.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <jedis.version>2.9.0</jedis.version>
+        <curator.version>2.11.1</curator.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <lombok.version>1.16.18</lombok.version>
+        <commons-io.version>2.4</commons-io.version>
+        <zkclient.version>0.10</zkclient.version>
+        <jfinal.version>3.5</jfinal.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
+        <quartz.version>2.3.0</quartz.version>
+        <guava.version>19.0</guava.version>
+        <guice.version>4.1.0</guice.version>
+        <snakeyaml.version>1.23</snakeyaml.version>
+        <github-pageHelper>5.1.4</github-pageHelper>
+        <github-pageHelper-starter> 1.2.5</github-pageHelper-starter>
+        <netty.version>4.1.36.Final</netty.version>
+        <apollo.version>1.1.0</apollo.version>
+        <poi.version>4.0.0</poi.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
+
+        <!-- Plugins Version -->
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
+        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+
+        <main.basedir>${project.basedir}</main.basedir>
+
+        <!-- override to set exclusions per-project -->
+        <errorprone.args />
+        <errorprone.version>2.3.3</errorprone.version>
+
+        <!-- can't switch to 2.12 until spark-cassandra-connector updates -->
+        <scala.binary.version>2.11</scala.binary.version>
+        <spark.version>2.4.3</spark.version>
+
+        <zipkin.version>2.16.0</zipkin.version>
+        <armeria.version>0.90.0</armeria.version>
+
+        <junit.version>4.12</junit.version>
+        <assertj.version>3.13.2</assertj.version>
+        <jackson.version>2.9.9</jackson.version>
+        <!-- connector uses an old version of the driver -->
+        <cassandra-driver-core.version>3.7.2</cassandra-driver-core.version>
+        <spark-cassandra-connector.version>2.4.1</spark-cassandra-connector.version>
+        <testcontainers.version>1.12.0</testcontainers.version>
+    </properties>
+
+  <scm>
+    <url>https://github.com/openzipkin/zipkin-dependencies</url>
+    <connection>scm:git:https://github.com/openzipkin/zipkin-dependencies.git</connection>
+    <developerConnection>scm:git:https://github.com/openzipkin/zipkin-dependencies.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <!-- Developer section is needed for Maven Central, but doesn't need to include each person -->
+  <developers>
+    <developer>
+      <id>openzipkin</id>
+      <name>OpenZipkin Gitter</name>
+      <url>https://gitter.im/openzipkin/zipkin</url>
+    </developer>
+  </developers>
+
+
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/openzipkin/maven/zipkin-dependencies/;publish=1</url>
+    </repository>
+    <snapshotRepository>
+      <id>jfrog-snapshots</id>
+      <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/openzipkin/zipkin-dependencies/issues</url>
+  </issueManagement>
+
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.fusesource</groupId>
+                <artifactId>sigar</artifactId>
+                <version>${sigar.version}</version>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>com.espertech</groupId>
+                <artifactId>esper</artifactId>
+                <version>${esper.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${ojdbc6.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${annotations.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.ethz.ganymed</groupId>
+                <artifactId>ganymed-ssh2</artifactId>
+                <version>${ganymed-ssh2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits.galaxy</groupId>
+                <artifactId>galaxy-dubbo</artifactId>
+                <version>${galaxy-dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jfinal</groupId>
+                <artifactId>jfinal</artifactId>
+                <version>${jfinal.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>druidMonitorApi</artifactId>
+                <version>${druidMonitorApi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>dcits</groupId>
+                <artifactId>tsdb-express</artifactId>
+                <version>${tsdb-express.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>influxdb-datasource</artifactId>
+                <version>${influxdb-datasource.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>agent</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>alarm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>auth</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>businessMonitor-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>databaseMonitor-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>demo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>deploy</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>eureka</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>gateway</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>governance</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>log-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>monitor-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dcits</groupId>
+                <artifactId>operation</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${spring-security-oauth2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${spring-security-oauth2-autoconfigure.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>${retrofit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-moshi</artifactId>
+                <version>${converter-moshi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+
+    <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-core_${scala.binary.version}</artifactId>
+        <version>${spark.version}</version>
+    </dependency>
+  <dependency>
+      <groupId>org.elasticsearch</groupId>
+      <artifactId>elasticsearch-spark-20_${scala.binary.version}</artifactId>
+      <version>7.4.0</version>
+    </dependency>
+
+   <dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.5</version>
+</dependency>
+
+
+  <dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-streaming_${scala.binary.version}</artifactId>
+    <version>2.4.4</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-sql_${scala.binary.version}</artifactId>
+    <version>2.4.4</version>
+</dependency>
+
+
+
+
+
+  </dependencies>
+
+<build>
+
+
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+            </plugin>
+
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefile-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${maven-install-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven-clean-plugin.version}</version>
+            </plugin>
+
+        </plugins>
+    </pluginManagement>
+
+
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.encoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>${project.artifactId}-${project.version}</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
+
+
