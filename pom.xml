@@ -52,8 +52,9 @@
          <module>spring-reactor</module>
 
         <module>spark-learn</module>
-       
-  </modules>
+        <module>springcloud-eureka-feign-mybatis-seata</module>
+
+    </modules>
 
 
 </project>
