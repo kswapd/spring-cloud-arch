@@ -1,0 +1,59 @@
+cloud:
+  trace:
+    enabled: true
+    kafka-address: 10.7.19.116:30025
+    kafka-topic: myzipkin
+    probability: 1.0
+    sender:
+      type: web
+    url: http://10.7.19.120:9411/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9527/eureka
+  instance:
+    health-check-url-path: /actuator/health
+
+ribbon:
+  nacos:
+    enabled: false
+spring:
+  application:
+    name: hello-service
+  autoconfigure:
+    exclude:
+      #关闭Eureka中心
+      - org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+      #关闭Nacos中心
+      - com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
+      #关闭Zookeeper中心
+      #- org.springframework.cloud.zookeeper.serviceregistry.ServiceRegistryAutoConfiguration
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.7.19.116:30999
+    zookeeper:
+      connect-string: 10.7.19.116:32099
+      enabled: true
+      discovery:
+        register: true
+        enabled: true
+        #instance-id: 1
+        root: /test
+      #config:
+      #  enabled: false
+logging:
+  level:
+    com:
+      dcits:
+        trace: INFO
+server:
+  port: 2001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
