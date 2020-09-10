@@ -1,0 +1,37 @@
+eureka:
+    client:
+        enabled: false
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:9527/eureka/
+    instance:
+        hostname: localhost
+        prefer-ip-address: true
+logging:
+    level:
+        io:
+            seata: info
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    typeAliasesPackage: io.seata.sample.entity
+server:
+    port: 8182
+spring:
+    application:
+        name: storage-server
+    cloud:
+    #    alibaba:
+    #        seata:
+     #           tx-service-group: my_test_tx_group
+        nacos:
+            discovery:
+                server-addr: localhost:8848
+    autoconfigure:
+        #关闭Eureka中心
+        exclude: org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+        #关闭Nacos中心
+        #exclude: com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://101.200.235.19:33010/demo_product
+        username: 'emall'
+        password: '1q2w3e4r'

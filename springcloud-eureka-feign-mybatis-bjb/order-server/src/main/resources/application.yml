@@ -1,0 +1,49 @@
+eureka:
+    instance:
+        hostname: localhost
+        prefer-ip-address: true
+    client:
+        enabled: false
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:9527/eureka/
+feign:
+    hystrix:
+        enabled: false
+    client:
+        config:
+            default:
+                connectTimeout: 5000
+                readTimeout: 10000
+logging:
+    level:
+        io:
+            seata: info
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    typeAliasesPackage: io.seata.sample.entity
+server:
+    port: 8180
+spring:
+    application:
+        name: order-server
+    cloud:
+        alibaba:
+            seata:
+                enabled: false
+    #            tx-service-group: my_test_tx_group
+        nacos:
+            discovery:
+                server-addr: localhost:8848
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://101.200.235.19:33010/demo_order
+        username: 'emall'
+        password: '1q2w3e4r'
+    autoconfigure:
+        #关闭Eureka中心
+        exclude: org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+        #关闭Nacos中心
+        #exclude: com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
+
+seata:
+    enabled: false

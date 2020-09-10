@@ -53,6 +53,7 @@
 
         <module>spark-learn</module>
         <module>springcloud-eureka-feign-mybatis-seata</module>
+        <module>springcloud-eureka-feign-mybatis-bjb</module>
         <module>saga-axon-server-spring-boot</module>
         <module>hello-service-multiple-registry</module>
         <module>sentinel-demo</module>
