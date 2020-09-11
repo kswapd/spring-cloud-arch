@@ -14,6 +14,7 @@ spring:
   redis:
     host: localhost
     port: 6379
+    database: 3
 #  http:
 #    encoding:
 #      charset: UTF-8
@@ -30,8 +31,20 @@ spring:
         #  locator:
         #    enabled: false
       routes:
-      - id: routeoms
-        uri: lb://CLOUD-TRACER-WITH-KAFKA
+      - id: order
+        uri: lb://order-server
+        predicates:
+        - Path=/gw/**
+        filters:
+        - StripPrefix=1
+      - id: storage
+        uri: lb://storage-server
+        predicates:
+        - Path=/gw/**
+        filters:
+        - StripPrefix=1
+      - id: account
+        uri: lb://account-server
         predicates:
         - Path=/gw/**
         filters:
