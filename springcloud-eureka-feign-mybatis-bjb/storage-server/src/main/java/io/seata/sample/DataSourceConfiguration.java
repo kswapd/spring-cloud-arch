@@ -1,7 +1,7 @@
 package io.seata.sample;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import io.seata.rm.datasource.DataSourceProxy;
+//import io.seata.rm.datasource.DataSourceProxy;
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -21,7 +21,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @ConditionalOnProperty(name = "global.transaction.enabled", havingValue = "true")
 public class DataSourceConfiguration {
 
-    @Bean
+    /*@Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource druidDataSource(){
         DruidDataSource druidDataSource = new DruidDataSource();
@@ -42,6 +42,6 @@ public class DataSourceConfiguration {
                 .getResources("classpath*:/mapper/*.xml"));
         sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
         return sqlSessionFactoryBean.getObject();
-    }
+    }*/
 
 }

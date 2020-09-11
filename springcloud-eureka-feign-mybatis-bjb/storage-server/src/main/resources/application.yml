@@ -19,8 +19,9 @@ spring:
     application:
         name: storage-server
     cloud:
-    #    alibaba:
-    #        seata:
+        alibaba:
+            seata:
+                enabled: false
      #           tx-service-group: my_test_tx_group
         nacos:
             discovery:
