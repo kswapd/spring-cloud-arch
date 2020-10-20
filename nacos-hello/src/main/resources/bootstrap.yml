@@ -1,0 +1,31 @@
+
+server:
+  port: 5001
+  servlet:
+    context-path: /
+  software:
+    dir: ./software
+  tempTransfer:
+    dir: ./tmp
+spring:
+  autoconfigure:
+    #关闭Eureka中心
+    exclude: org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+    #关闭Nacos中心
+    #exclude: com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
+  cloud:
+    config:
+      enabled: false
+      server-addr: 10.7.19.116:30789
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 10.7.19.116:30789
+  application:
+    name: nacos-hello
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9527/eureka
+#logging.level.com.dcits.trace=DEBUG
