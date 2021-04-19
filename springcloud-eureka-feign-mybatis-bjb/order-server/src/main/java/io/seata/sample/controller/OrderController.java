@@ -30,6 +30,12 @@ public class OrderController {
         return "Create order success";
     }
 
+    @GetMapping("testnm")
+    public String testnm(Order order){
+        orderServiceImpl.testnm(order);
+        return "Create order success";
+    }
+
     /**
      * 修改订单状态
      * @param userId

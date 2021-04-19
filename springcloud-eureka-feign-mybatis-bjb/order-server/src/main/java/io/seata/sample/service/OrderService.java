@@ -14,6 +14,7 @@ public interface OrderService {
      * @return
      */
     void create(Order order);
+    void testnm(Order order);
 
     /**
      * 修改订单状态

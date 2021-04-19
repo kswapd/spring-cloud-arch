@@ -3,7 +3,7 @@ eureka:
         hostname: localhost
         prefer-ip-address: true
     client:
-        enabled: false
+        enabled: true
         serviceUrl:
             defaultZone: http://${eureka.instance.hostname}:9527/eureka/
 feign:
@@ -23,9 +23,15 @@ mybatis:
     typeAliasesPackage: io.seata.sample.entity
 server:
     port: 8180
+
 spring:
     application:
         name: order-server
+    zipkin:
+        base-url: http://10.7.94.115:9411
+    sleuth:
+        sampler:
+            percentage: 1.0
     cloud:
         alibaba:
             seata:
@@ -33,17 +39,19 @@ spring:
     #            tx-service-group: my_test_tx_group
         nacos:
             discovery:
+                enabled: false
                 server-addr: localhost:8848
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://101.200.235.19:33010/demo_order
-        username: 'emall'
-        password: '1q2w3e4r'
+        url: jdbc:mysql://101.200.235.19:33010/demo_order?statementInterceptors=brave.mysql.TracingStatementInterceptor&zipkinServiceName=nanDatabase
+        datasource:
+        username: 'fmall'
+        password: '1q2w3e4r5t'
     autoconfigure:
         #关闭Eureka中心
-        exclude: org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+        #exclude: org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
         #关闭Nacos中心
-        #exclude: com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
+        exclude: com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
 
 seata:
     enabled: false

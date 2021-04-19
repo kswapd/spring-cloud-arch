@@ -3,7 +3,7 @@ eureka:
         hostname: localhost
         prefer-ip-address: true
     client:
-        enabled: false
+        enabled: true
         serviceUrl:
             defaultZone: http://${eureka.instance.hostname}:9527/eureka/
 feign:
@@ -24,20 +24,26 @@ server:
 spring:
     application:
         name: account-server
+    zipkin:
+        base-url: http://10.7.94.115:9411
+    sleuth:
+        sampler:
+            percentage: 1.0
     cloud:
     #    alibaba:
     #        seata:
     #            tx-service-group: my_test_tx_group
         nacos:
             discovery:
+                enabled: false
                 server-addr: localhost:8848
     autoconfigure:
         #关闭Eureka中心
-        exclude: org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+        #exclude: org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
         #关闭Nacos中心
-        #exclude: com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
+        exclude: com.alibaba.cloud.nacos.NacosDiscoveryAutoConfiguration
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://101.200.235.19:33010/demo_account
-        username: 'emall'
-        password: '1q2w3e4r'
+        url: jdbc:mysql://101.200.235.19:33010/demo_account?statementInterceptors=brave.mysql.TracingStatementInterceptor&zipkinServiceName=nanDatabase
+        username: 'fmall'
+        password: '1q2w3e4r5t'

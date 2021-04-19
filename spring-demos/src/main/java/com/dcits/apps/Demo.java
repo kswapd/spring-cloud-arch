@@ -7,14 +7,20 @@ import com.dcits.beans.BookInfo;
 import com.dcits.beans.CacheDemo;
 import com.dcits.beans.DaoDemo;
 import com.dcits.beans.Hint;
+import com.dcits.beans.RSACryptor;
 import com.dcits.beans.UserInfo;
 import com.dcits.beans.ZkGetMasterBean;
 import com.dcits.beans.ZkLockBean;
 import com.dcits.cache.CacheUtils;
 import com.dcits.daos.TestDao;
 import com.dcits.exceptions.GalaxyException;
+import com.dcits.jsbank.ws.WDGLYCDOrderQuerySOAPQSService;
+import com.dcits.jsbank.ws.WDGLYCDOrderQueryService;
+import com.dcits.jsbank.ws.YCDOrderQueryRequest;
+import com.dcits.jsbank.ws.YCDOrderQueryResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,10 +99,55 @@ public class Demo {
 		// testSplit();
 		//testRecursiveTask();
 		//testRecursiveAction();
-		testWebService();
+		//testJSWebService();
+		//testEncrypt();
+		multiplyTable();
 
 
 	}
+
+	public static void testDate()
+	{
+			long limitRefundTime = 7 * 24 * 60 * 60 * 1000;
+			long finishTime = new Date().getTime();
+			long currentTime = System.currentTimeMillis();
+			if(currentTime - finishTime < limitRefundTime) {
+				System.out.println("true");
+				return;
+			}
+		System.out.println("false");
+	}
+
+
+
+	public static void multiplyTable()
+	{
+		/*for(int a = 0; a < 21; a ++){
+			System.out.println(a*100);
+		}*/
+		/*int a = 10;
+		int b = 20;
+		int c = a * b + 20;*/
+		/*System.out.println("hello world!");
+		System.out.println("hello world!");
+		System.out.println("hello world!");
+		System.out.println("hello world!");
+		System.out.println("hello world!");
+		System.out.println("hello world!");
+		System.out.println("hello world!");
+		System.out.println("hello world!");
+		System.out.println("hello world!");*/
+
+		int a = 25;
+		int b = 30;
+
+		System.out.println(b-a);
+		System.out.println(a-b);
+		System.out.println(a>b ? "yes" : "no");
+		System.out.println(a<b ? "yes" : "no");
+
+	}
+
 
 	public static void testWebService1()
 	{
@@ -121,6 +172,52 @@ public class Demo {
         } catch (Exception e) {
             System.err.println(e.toString());
         }
+	}
+
+
+	public static void testJSWebService()
+	{
+		/*try {
+			String endpoint = "http://111.20.82.6:8060/seasws/services/SeasService";
+			//直接引用远程的wsdl文件
+			//以下都是套路
+			Service service = new Service();
+			Call call = (Call) service.createCall();
+			call.setTargetEndpointAddress(endpoint);
+			call.setOperationName("login");//WSDL里面描述的接口名称
+
+			call.addParameter("in1", org.apache.axis.encoding.XMLType.XSD_STRING,
+					javax.xml.rpc.ParameterMode.IN);//接口的参数
+			call.addParameter("in2", org.apache.axis.encoding.XMLType.XSD_STRING,
+					javax.xml.rpc.ParameterMode.IN);//接口的参数
+			call.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);//设置返回类型
+			String loginName = "zhangbei";
+			String loginPassword = "123456";
+			String result = (String) call.invoke(new Object[]{loginName,loginPassword});//给方法传递参数，并且调用方法
+			System.out.println("result is " + result);
+		} catch (Exception e) {
+			System.err.println(e.toString());
+		}*/
+		System.out.println("js bank web service start");
+		WDGLYCDOrderQuerySOAPQSService s =new WDGLYCDOrderQuerySOAPQSService();
+		WDGLYCDOrderQueryService rs = s.getWDGLYCDOrderQuerySOAPQSPort();
+		YCDOrderQueryRequest req = new YCDOrderQueryRequest();
+		req.setCardId("111");
+		req.setCustNo("222");
+		System.out.println("js bank web service  start sending request");
+		YCDOrderQueryResponse res = rs.ycdOrderQuery(req);
+		System.out.println("js bank web service  finish sending request");
+		System.out.println("js result is " + res.toString());
+
+	}
+
+	public static void testEncrypt()
+	{
+		String rsaEnc = RSACryptor.encrypt("myqpp");
+		System.out.println("app:"+rsaEnc);
+
+		rsaEnc = RSACryptor.encrypt("xttd123");
+		System.out.println("xttd123:"+rsaEnc);
 	}
 
 	public static void testWebService()

@@ -7,6 +7,11 @@ import io.seata.sample.feign.StorageApi;
 //import io.seata.spring.annotation.GlobalTransactional;
 import io.seata.spring.annotation.GlobalTransactional;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +58,54 @@ public class OrderServiceImpl implements OrderService{
         LOGGER.info("------->扣减账户结束order中");
 
         LOGGER.info("------->交易结束");
+    }
+
+
+    public void testnm(Order order) {
+        LOGGER.info("------->Test开始");
+            System.out.println("MySQL JDBC Example.");
+            Connection conn = null;
+//        String url = "jdbc:mysql://localhost:3306/poc_oms_930?autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8&queryInterceptors=brave.mysql8.TracingQueryInterceptor&zipkinServiceName=nanDatabase";
+            String url = "jdbc:mysql://10.7.84.168:3306/poc_oms_930?autoReconnect=true&serverTimezone=GMT%2B8&useSSL=false&statementInterceptors=brave.mysql.TracingStatementInterceptor&zipkinServiceName=nanDatabase";
+//        String url = "jdbc:mysql://localhost:3306/poc_oms_930?autoReconnect=true&serverTimezone=GMT%2B8&useSSL=false&statementInterceptors=com.github.kristofa.brave.mysql.MySQLStatementInterceptor&zipkinServiceName=nanmiaoDatabase";
+//        String driver = "com.mysql.cj.jdbc.Driver";
+            String driver = "com.mysql.jdbc.Driver";
+            String userName = "root";
+            String password = "123456";
+            Statement stmt = null;
+            ResultSet rs = null;
+            try {
+                Class.forName(driver);
+                conn = DriverManager.getConnection(url, userName, password);
+                stmt = conn.createStatement();
+                String sql = "select * from sys_user";
+                rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    int id = rs.getInt("user_id");
+                    String name = rs.getString("username");
+                    System.out.println("id = " + id + ", name = " + name);
+                }
+                // 关闭资源
+                rs.close();
+                stmt.close();
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) {
+                    try {
+                        rs.close();
+                    } catch (SQLException sqlEx) { } // ignore
+                }
+
+                if (stmt != null) {
+                    try {
+                        stmt.close();
+                    } catch (SQLException sqlEx) { } // ignore
+                }
+            }
+
+        LOGGER.info("------->Test结束");
     }
 
     /**
